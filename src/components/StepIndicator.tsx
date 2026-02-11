@@ -11,7 +11,7 @@ export function StepIndicator({ state, onStepClick }: Props) {
   const steps = Array.from({ length: STEP_COUNT }, (_, i) => i as WizardStep)
 
   return (
-    <div className="flex items-center justify-center gap-0 px-6 py-4">
+    <div className="flex items-center justify-center gap-0 px-4 sm:px-6 py-4">
       {steps.map((step, i) => {
         const isCurrent = state.currentStep === step
         const isCompleted = isStepComplete(state, step) && !isCurrent
@@ -62,7 +62,7 @@ export function StepIndicator({ state, onStepClick }: Props) {
             {/* Connector line */}
             {i < STEP_COUNT - 1 && (
               <div
-                className={`w-12 h-px mx-3 transition-colors ${
+                className={`w-8 sm:w-12 h-px mx-2 sm:mx-3 transition-colors ${
                   isStepComplete(state, step) ? 'bg-ash/40' : 'bg-ash/15'
                 }`}
               />

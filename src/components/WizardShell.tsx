@@ -35,7 +35,7 @@ export function WizardShell({ state, onNext, onBack, onStepClick, children }: Pr
   return (
     <div className="h-screen flex flex-col bg-obsidian text-bone">
       {/* Header */}
-      <header className="px-6 py-4 border-b border-ash/10">
+      <header className="px-4 sm:px-6 py-4 border-b border-ash/10">
         <div className="border-l-4 border-ash pl-3">
           <span className="text-ash font-black text-sm uppercase tracking-[4px]">
             Produkt
@@ -50,14 +50,14 @@ export function WizardShell({ state, onNext, onBack, onStepClick, children }: Pr
       <StepIndicator state={state} onStepClick={onStepClick} />
 
       {/* Main Content */}
-      <main className="flex-1 min-h-0 overflow-auto px-6 py-4">
+      <main className="flex-1 min-h-0 overflow-auto px-4 sm:px-6 py-4">
         <div className="step-enter" key={state.currentStep}>
           {children}
         </div>
       </main>
 
       {/* Footer Navigation */}
-      <footer className="px-6 py-4 border-t border-ash/10 flex justify-between">
+      <footer className="px-4 sm:px-6 py-4 border-t border-ash/10 flex justify-between">
         {canGoBack ? (
           <button
             onClick={onBack}

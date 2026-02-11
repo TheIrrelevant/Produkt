@@ -75,52 +75,49 @@ export function StepContext({ state, dispatch, lib }: Props) {
               Apply photographer&apos;s visual DNA
             </p>
 
-            {/* Genre + Photographer side by side */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Genre Selector */}
-              <div className="flex flex-col gap-2">
+            {/* Genre Selector */}
+            <div className="flex flex-col gap-2">
+              <span className="text-ash/40 text-xs uppercase tracking-wider">
+                Genre
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {genres.map((genre) => (
+                  <SelectCard
+                    key={genre}
+                    label={genre}
+                    description={`${Object.keys(lib.photographers[genre]).length} artists`}
+                    isSelected={state.selectedGenre === genre}
+                    onClick={() => dispatch({ type: 'SET_GENRE', genre })}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Photographer Selector */}
+            {state.selectedGenre && (
+              <div className="flex flex-col gap-2 step-enter">
                 <span className="text-ash/40 text-xs uppercase tracking-wider">
-                  Genre
+                  Photographer
                 </span>
-                <div className="flex flex-col gap-2">
-                  {genres.map((genre) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                  {photographers.map((name) => (
                     <SelectCard
-                      key={genre}
-                      label={genre}
-                      description={`${Object.keys(lib.photographers[genre]).length} artists`}
-                      isSelected={state.selectedGenre === genre}
-                      onClick={() => dispatch({ type: 'SET_GENRE', genre })}
+                      key={name}
+                      label={name}
+                      description={lib.photographers[state.selectedGenre!][name].style}
+                      isSelected={state.selectedPhotographerName === name}
+                      onClick={() =>
+                        dispatch({
+                          type: 'SET_PHOTOGRAPHER',
+                          name,
+                          info: lib.photographers[state.selectedGenre!][name],
+                        })
+                      }
                     />
                   ))}
                 </div>
               </div>
-
-              {/* Photographer Selector */}
-              {state.selectedGenre && (
-                <div className="flex flex-col gap-2 step-enter">
-                  <span className="text-ash/40 text-xs uppercase tracking-wider">
-                    Photographer
-                  </span>
-                  <div className="flex flex-col gap-2 max-h-64 overflow-y-auto pr-1">
-                    {photographers.map((name) => (
-                      <SelectCard
-                        key={name}
-                        label={name}
-                        description={lib.photographers[state.selectedGenre!][name].style}
-                        isSelected={state.selectedPhotographerName === name}
-                        onClick={() =>
-                          dispatch({
-                            type: 'SET_PHOTOGRAPHER',
-                            name,
-                            info: lib.photographers[state.selectedGenre!][name],
-                          })
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            )}
 
             {/* InfoBox — selected photographer details */}
             {state.selectedPhotographerInfo && (

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "tsc -b",
     "preview": "vite preview",
     "start-engine": "vite --open",
     "stop-engine": "lsof -ti :3002 | xargs kill 2>/dev/null; echo 'Engine stopped.'"

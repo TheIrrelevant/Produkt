@@ -1,0 +1,6 @@
+Produkt: Product Context Engine.
+React 19 + TypeScript + Vite 7 + Tailwind v4.
+3 colors: #222121 #F9FEFF #E2E7E9. No light mode.
+No enums. import type for types. Class ErrorBoundary.
+Engine: src/engine/ (no React). UI: src/components/.
+Port 3002.
