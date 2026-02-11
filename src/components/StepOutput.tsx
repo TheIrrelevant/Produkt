@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react'
 import type { Dispatch } from 'react'
 import type { WizardState, WizardAction } from '../types/wizard'
 import type { Library } from '../types/library'
+import { buildPrompt } from '../engine/prompt-builder'
+import { runProduktEngine } from '../engine/run'
 
 interface Props {
   state: WizardState
@@ -44,17 +46,16 @@ export function StepOutput({ state, dispatch }: Props) {
   const handleGenerate = useCallback(async () => {
     dispatch({ type: 'START_GENERATE' })
     try {
-      // TODO: Step 07 — wire runProduktEngine(state, imageFile) here
-      await new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Engine not connected yet — build Step 07')), 1500),
-      )
+      const prompt = buildPrompt(state)
+      const result = await runProduktEngine(prompt, state.referenceImage!)
+      dispatch({ type: 'SET_GENERATED_PROMPT', prompt: result })
     } catch (err) {
       dispatch({
         type: 'SET_GENERATE_ERROR',
         error: err instanceof Error ? err.message : 'Unknown error',
       })
     }
-  }, [dispatch])
+  }, [state, dispatch])
 
   async function handleCopy() {
     await navigator.clipboard.writeText(state.generatedPrompt!)
