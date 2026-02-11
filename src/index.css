@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* ============================================
+   KRAFTREICH — Design Tokens
+   Brand: Obsidian Black + Bone White + Ash Silver
+   ============================================ */
+
+@font-face {
+  font-family: 'Warbler';
+  src: url('/fonts/WarblerVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --color-obsidian: #222121;
+  --color-bone: #F9FEFF;
+  --color-ash: #E2E7E9;
+
+  --font-warbler: 'Warbler', Georgia, serif;
+  --font-avenir: 'Avenir', 'Avenir Next', system-ui, sans-serif;
+
+  --radius-default: 8px;
+  --radius-card: 12px;
+  --spacing-unit: 8px;
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+
+body {
+  font-family: var(--font-avenir);
+  background-color: var(--color-obsidian);
+  color: var(--color-bone);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-ash);
+  color: var(--color-obsidian);
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-bar {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.step-enter {
+  animation: fadeSlideIn 200ms ease-out;
+}
+
+.pulse-bar {
+  animation: pulse-bar 1.5s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E2E7E9; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #F9FEFF; }

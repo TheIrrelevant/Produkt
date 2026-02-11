@@ -1,0 +1,29 @@
+{
+  "photographers": {
+    "Fashion": {
+      "Coreen Simpson": { "style": "Street-fashion culture.", "lighting": "Analog film textures.", "vibe": "Authentic." },
+      "David LaChapelle": { "style": "Hyper-realistic, kitsch.", "lighting": "Highly artificial.", "vibe": "Surreal." },
+      "Emanuele Ferrari": { "style": "Natural eroticism.", "lighting": "Soft natural light.", "vibe": "Sensual." },
+      "Juergen Teller": { "style": "Overexposed, raw.", "lighting": "Direct camera flash.", "vibe": "Anti-glamour." },
+      "Kacper Kasprzyk": { "style": "Architectural, minimal.", "lighting": "Cold studio light.", "vibe": "Modern." },
+      "Mario Testino": { "style": "High-energy luxury.", "lighting": "Balanced studio light.", "vibe": "Posh." },
+      "Tim Walker": { "style": "Surreal, fairy-tale.", "lighting": "Soft dream tones.", "vibe": "Whimsical." },
+      "Viviane Sassen": { "style": "Abstracted bodies.", "lighting": "High-contrast sunlight.", "vibe": "Bold." }
+    },
+    "Product / Still Life": {
+      "Aaron Tilley": { "style": "Conceptual tension.", "lighting": "High-precision.", "vibe": "Creative." },
+      "Carl Kleiner": { "style": "Minimalist geometric.", "lighting": "Flat, even light.", "vibe": "Graphic." },
+      "Daniel Sannwald": { "style": "Futuristic CGI-like.", "lighting": "Experimental gels.", "vibe": "Cyberpunk." },
+      "Irving Penn": { "style": "Elegant simplicity.", "lighting": "North-light studio.", "vibe": "Timeless." },
+      "Jonathan Knowles": { "style": "High-speed liquids.", "lighting": "Strobe-frozen.", "vibe": "Technical." },
+      "Jonathan Zawada": { "style": "Digital-physical hybrid.", "lighting": "Synthetic light.", "vibe": "Alien." },
+      "Karl Taylor": { "style": "Technical perfection.", "lighting": "Complex multi-light.", "vibe": "Commercial." },
+      "Markus Jans": { "style": "Moody, textural.", "lighting": "Dark focused light.", "vibe": "Atmospheric." },
+      "Mike Kus": { "style": "Lifestyle product.", "lighting": "Natural daylight.", "vibe": "Warm." },
+      "Rich Stapleton": { "style": "Minimal earthy.", "lighting": "Soft natural shadows.", "vibe": "Serene." },
+      "Robert Clark": { "style": "Detailed observational.", "lighting": "Even studio light.", "vibe": "Precise." },
+      "Thomas Prior": { "style": "Accidental art.", "lighting": "Soft glows.", "vibe": "Artistic." },
+      "Tim Tadder": { "style": "Explosive, colorful.", "lighting": "Intense strobes.", "vibe": "Powerful." }
+    }
+  }
+}
