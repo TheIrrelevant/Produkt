@@ -25,5 +25,133 @@
       "Thomas Prior": { "style": "Accidental art.", "lighting": "Soft glows.", "vibe": "Artistic." },
       "Tim Tadder": { "style": "Explosive, colorful.", "lighting": "Intense strobes.", "vibe": "Powerful." }
     }
+  },
+  "productTypes": {
+    "jewelry": {
+      "label": "Jewelry",
+      "analysisTemplate": [
+        {
+          "label": "Geometry & Proportions",
+          "dimensions": ["pendant/piece type", "arm/body ratios", "thickness", "corner shape", "depth/profile", "symmetry", "orientation", "size relative to chain/body"]
+        },
+        {
+          "label": "Metal & Finish",
+          "dimensions": ["metal color", "surface finish", "base structure", "bail/clasp finish", "chain/band finish", "imperfections", "overall vibe", "engravings or markings"]
+        },
+        {
+          "label": "Gemstones & Setting",
+          "dimensions": ["stone type", "cut style", "setting method", "stone distribution", "stone size", "stone count", "sparkle quality", "condition"]
+        },
+        {
+          "label": "Chain & Connector",
+          "dimensions": ["chain/band style", "thickness", "symmetry", "bail/clasp type", "opening mechanism", "connection point", "hanging behavior", "extra elements"]
+        }
+      ]
+    },
+    "electronics": {
+      "label": "Electronics",
+      "analysisTemplate": [
+        {
+          "label": "Body & Form",
+          "dimensions": ["body shape", "dimensions ratio", "primary material", "color", "surface texture", "weight feel", "edge treatment", "symmetry"]
+        },
+        {
+          "label": "Display & Interface",
+          "dimensions": ["screen type", "screen size ratio", "bezel width", "display aspect", "interface elements", "status indicators", "brightness zones", "reflection behavior"]
+        },
+        {
+          "label": "Ports & Controls",
+          "dimensions": ["port types", "port placement", "button count", "button style", "switch mechanisms", "speaker grills", "ventilation", "antenna lines"]
+        },
+        {
+          "label": "Branding & Details",
+          "dimensions": ["logo placement", "logo style", "text markings", "regulatory marks", "serial area", "finish details", "included accessories", "packaging cues"]
+        }
+      ]
+    },
+    "beverages": {
+      "label": "Beverages",
+      "analysisTemplate": [
+        {
+          "label": "Container & Form",
+          "dimensions": ["container type", "shape profile", "height", "diameter", "material", "transparency level", "cap/lid style", "base shape"]
+        },
+        {
+          "label": "Liquid & Content",
+          "dimensions": ["liquid color", "opacity", "carbonation level", "viscosity", "fill level", "condensation", "foam/head", "sediment"]
+        },
+        {
+          "label": "Label & Branding",
+          "dimensions": ["label position", "label material", "logo", "typography style", "color scheme", "legal text area", "barcode placement", "special marks"]
+        },
+        {
+          "label": "Surface & Finish",
+          "dimensions": ["surface texture", "reflectivity", "embossing", "debossing", "print quality", "seal type", "neck treatment", "decorative elements"]
+        }
+      ]
+    },
+    "cosmetics": {
+      "label": "Cosmetics",
+      "analysisTemplate": [
+        {
+          "label": "Packaging & Form",
+          "dimensions": ["container type", "shape", "size", "material", "cap style", "dispenser type", "closure mechanism", "base shape"]
+        },
+        {
+          "label": "Product & Texture",
+          "dimensions": ["product type", "color", "consistency", "finish type", "shimmer/matte", "coverage level", "application method", "texture detail"]
+        },
+        {
+          "label": "Branding & Design",
+          "dimensions": ["brand logo", "typography", "color palette", "label material", "decorative elements", "batch info area", "ingredient display", "luxury cues"]
+        },
+        {
+          "label": "Material & Surface",
+          "dimensions": ["outer material", "inner material", "surface finish", "transparency", "weight feel", "embossing", "metallic accents", "tactile quality"]
+        }
+      ]
+    },
+    "fashion_accessories": {
+      "label": "Fashion Accessories",
+      "analysisTemplate": [
+        {
+          "label": "Form & Silhouette",
+          "dimensions": ["accessory type", "overall shape", "dimensions", "proportions", "symmetry", "structural rigidity", "weight distribution", "orientation"]
+        },
+        {
+          "label": "Material & Construction",
+          "dimensions": ["primary material", "secondary material", "stitching quality", "hardware material", "lining", "reinforcement areas", "edge finishing", "construction method"]
+        },
+        {
+          "label": "Hardware & Details",
+          "dimensions": ["clasp type", "buckle style", "zipper type", "rivets/studs", "grommets", "chain links", "snap buttons", "decorative hardware"]
+        },
+        {
+          "label": "Branding & Pattern",
+          "dimensions": ["logo placement", "logo type", "pattern/print", "color blocking", "texture pattern", "monogram", "label placement", "signature details"]
+        }
+      ]
+    },
+    "food": {
+      "label": "Food",
+      "analysisTemplate": [
+        {
+          "label": "Form & Composition",
+          "dimensions": ["food type", "shape", "portion size", "layering", "arrangement", "garnish elements", "sauce/glaze", "structural integrity"]
+        },
+        {
+          "label": "Color & Texture",
+          "dimensions": ["dominant color", "color variation", "surface texture", "internal texture", "moisture level", "crust/coating", "melt/drip effects", "freshness indicators"]
+        },
+        {
+          "label": "Plating & Presentation",
+          "dimensions": ["container/plate type", "serving surface", "wrapper style", "brand label", "brand elements", "portion indicator", "seal type", "serving suggestion"]
+        },
+        {
+          "label": "Ingredients & Detail",
+          "dimensions": ["visible ingredients", "toppings", "filling visibility", "seeds/grains", "herbs/spices", "condiment presence", "cross-section appeal", "steam/heat cues"]
+        }
+      ]
+    }
   }
 }

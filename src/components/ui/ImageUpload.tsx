@@ -43,11 +43,11 @@ export function ImageUpload({ preview, onUpload, onClear }: ImageUploadProps) {
   // Preview state
   if (preview) {
     return (
-      <div className="relative group rounded-card overflow-hidden bg-obsidian border border-ash/10">
+      <div className="relative group rounded-card overflow-hidden bg-obsidian border border-ash/10 h-full">
         <img
           src={preview}
           alt="Product reference"
-          className="w-full aspect-[4/3] object-contain"
+          className="w-full h-full object-contain"
         />
         <button
           type="button"
@@ -67,7 +67,7 @@ export function ImageUpload({ preview, onUpload, onClear }: ImageUploadProps) {
       onDragLeave={() => setDragging(false)}
       onDrop={handleDrop}
       onClick={() => inputRef.current?.click()}
-      className={`aspect-[4/3] flex flex-col items-center justify-center gap-3 rounded-card cursor-pointer transition-colors border border-dashed ${
+      className={`h-full min-h-[200px] flex flex-col items-center justify-center gap-3 rounded-card cursor-pointer transition-colors border border-dashed ${
         dragging ? 'border-ash bg-ash/5' : 'border-ash/30 hover:border-ash/50'
       }`}
     >

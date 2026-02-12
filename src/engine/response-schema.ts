@@ -4,37 +4,48 @@ export const PRODUKT_RESPONSE_SCHEMA = {
     product_context_prompt: {
       type: 'object',
       properties: {
-        product_identification: {
+        reference_analysis: {
           type: 'string',
           description:
-            'Exact product description: type, precise colors, materials, finish, size, logos, distinctive features. 100% fidelity to reference image.',
+            'Phase 1: Complete product analysis — geometry, materials, details, distinguishing features. Forensic-level fidelity to reference image.',
         },
-        context_transformation: {
+        photography_concept: {
           type: 'string',
           description:
-            'New setting, product positioning, focal point treatment, background description, environmental elements.',
+            'Phase 2: Scene design, product placement, environment, focal strategy, and mood. Context transformation based on user request.',
         },
-        technical_photography: {
+        lighting_and_camera: {
           type: 'string',
           description:
-            'Shot type, lighting setup, depth of field, camera angle, perspective, background treatment.',
+            'Phase 3: Complete technical setup — key/fill/rim lighting, camera lens/aperture/angle, photographer style influence, color science.',
         },
-        artistic_direction: {
-          type: 'string',
-          description:
-            'Photographer style influence (if selected), visual DNA application, color science, mood.',
+        render_constraints: {
+          type: 'object',
+          properties: {
+            must_include: {
+              type: 'array',
+              items: { type: 'string' },
+              description: 'Non-negotiable elements that must appear in the final render.',
+            },
+            must_not_include: {
+              type: 'array',
+              items: { type: 'string' },
+              description: 'Hard exclusions — elements that must never appear.',
+            },
+          },
+          required: ['must_include', 'must_not_include'],
         },
         final_prompt: {
           type: 'string',
           description:
-            'Complete, unified photography prompt ready for image generation. Ultra realistic, photorealistic, commercial quality.',
+            'Complete, unified photography prompt combining all four phases. Ready for direct image generation. Ultra realistic, photorealistic, commercial quality.',
         },
       },
       required: [
-        'product_identification',
-        'context_transformation',
-        'technical_photography',
-        'artistic_direction',
+        'reference_analysis',
+        'photography_concept',
+        'lighting_and_camera',
+        'render_constraints',
         'final_prompt',
       ],
     },

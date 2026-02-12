@@ -1,57 +1,50 @@
-import { useWizardReducer } from './components/useWizardReducer'
-import { WizardShell } from './components/WizardShell'
+import { useProduktReducer } from './components/useProduktReducer'
+import { PageLayout } from './components/PageLayout'
 import { ErrorBoundary } from './components/ErrorBoundary'
-import type { WizardStep } from './types/wizard'
-import { WizardStep as WS } from './types/wizard'
-import { isStepComplete, canNavigateToStep } from './engine/validation'
+import { SectionReference } from './components/SectionReference'
+import { SectionConfig } from './components/SectionConfig'
+import { SectionOutput } from './components/SectionOutput'
 import { useLibrary } from './data/useLibrary'
-import { StepReference } from './components/StepReference'
-import { StepContext } from './components/StepContext'
-import { StepOutput } from './components/StepOutput'
 
 export default function App() {
-  const [state, dispatch] = useWizardReducer()
+  const [state, dispatch] = useProduktReducer()
   const lib = useLibrary()
 
-  function handleNext() {
-    if (state.currentStep < 2 && isStepComplete(state, state.currentStep)) {
-      dispatch({ type: 'SET_STEP', step: (state.currentStep + 1) as WizardStep })
-    }
-  }
-
-  function handleBack() {
-    if (state.currentStep > 0) {
-      dispatch({ type: 'SET_STEP', step: (state.currentStep - 1) as WizardStep })
-    }
-  }
-
-  function handleStepClick(step: WizardStep) {
-    if (canNavigateToStep(state, step)) {
-      dispatch({ type: 'SET_STEP', step })
-    }
-  }
-
-  function renderStep() {
-    switch (state.currentStep) {
-      case WS.Reference:
-        return <StepReference state={state} dispatch={dispatch} />
-      case WS.Context:
-        return <StepContext state={state} dispatch={dispatch} lib={lib} />
-      case WS.Output:
-        return <StepOutput state={state} dispatch={dispatch} lib={lib} />
-    }
-  }
-
   return (
-    <WizardShell
-      state={state}
-      onNext={handleNext}
-      onBack={handleBack}
-      onStepClick={handleStepClick}
-    >
+    <PageLayout>
       <ErrorBoundary>
-        {renderStep()}
+        <div className="max-w-7xl mx-auto flex flex-col gap-6 py-6">
+          {/* Top: 3-column input area */}
+          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_1fr] gap-6">
+            {/* Left: Reference Image */}
+            <SectionReference state={state} dispatch={dispatch} />
+
+            {/* Center: Product Type + Photographer */}
+            <SectionConfig state={state} dispatch={dispatch} lib={lib} />
+
+            {/* Right: Context Text */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-ash/40 text-xs uppercase tracking-wider">
+                Context Description
+              </label>
+              <textarea
+                value={state.contextText}
+                onChange={(e) => dispatch({ type: 'SET_CONTEXT_TEXT', text: e.target.value })}
+                placeholder="Place this product inside a luxury jewelry box with champagne-toned background and soft premium lighting..."
+                className="flex-1 min-h-[200px] bg-obsidian border border-ash/20 rounded-default p-4
+                           text-bone text-sm placeholder:text-ash/30
+                           focus:border-ash/50 focus:outline-none resize-none"
+              />
+            </div>
+          </div>
+
+          {/* Separator */}
+          <div className="border-t border-ash/10" />
+
+          {/* Bottom: Output + Buttons */}
+          <SectionOutput state={state} dispatch={dispatch} />
+        </div>
       </ErrorBoundary>
-    </WizardShell>
+    </PageLayout>
   )
 }

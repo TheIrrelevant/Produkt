@@ -1,17 +1,17 @@
 import { useReducer } from 'react'
-import type { WizardState, WizardAction } from '../types/wizard'
-import { INITIAL_WIZARD_STATE } from '../types/wizard'
+import type { ProduktState, ProduktAction } from '../types/state'
+import { INITIAL_STATE } from '../types/state'
 
-function wizardReducer(state: WizardState, action: WizardAction): WizardState {
+function produktReducer(state: ProduktState, action: ProduktAction): ProduktState {
   switch (action.type) {
-    case 'SET_STEP':
-      return { ...state, currentStep: action.step }
-
     case 'SET_REFERENCE':
       return { ...state, referenceImage: action.file, referencePreview: action.preview }
 
     case 'CLEAR_REFERENCE':
       return { ...state, referenceImage: null, referencePreview: null }
+
+    case 'SET_PRODUCT_TYPE':
+      return { ...state, selectedProductTypeId: action.id, selectedProductType: action.productType }
 
     case 'SET_CONTEXT_TEXT':
       return { ...state, contextText: action.text }
@@ -68,13 +68,13 @@ function wizardReducer(state: WizardState, action: WizardAction): WizardState {
       return { ...state, elapsedMs: action.ms }
 
     case 'RESET':
-      return INITIAL_WIZARD_STATE
+      return INITIAL_STATE
 
     default:
       return state
   }
 }
 
-export function useWizardReducer() {
-  return useReducer(wizardReducer, INITIAL_WIZARD_STATE)
+export function useProduktReducer() {
+  return useReducer(produktReducer, INITIAL_STATE)
 }
