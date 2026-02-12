@@ -135,6 +135,10 @@ export function SectionConfig({ state, dispatch, lib }: Props) {
           <div className="flex flex-col gap-1 border border-ash/10 rounded-default p-3">
             <p className="text-ash/50"><span className="text-ash/30">Style:</span> {state.selectedPhotographerInfo.style}</p>
             <p className="text-ash/50"><span className="text-ash/30">Light:</span> {state.selectedPhotographerInfo.lighting}</p>
+            <p className="text-ash/50"><span className="text-ash/30">Composition:</span> {state.selectedPhotographerInfo.composition}</p>
+            <p className="text-ash/50"><span className="text-ash/30">Color:</span> {state.selectedPhotographerInfo.color_palette}</p>
+            <p className="text-ash/50"><span className="text-ash/30">Lens:</span> {state.selectedPhotographerInfo.lens}</p>
+            <p className="text-ash/50"><span className="text-ash/30">Signature:</span> {state.selectedPhotographerInfo.signature}</p>
             <p className="text-ash/50"><span className="text-ash/30">Vibe:</span> {state.selectedPhotographerInfo.vibe}</p>
           </div>
         </div>

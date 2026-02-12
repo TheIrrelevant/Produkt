@@ -1,29 +1,197 @@
 {
   "photographers": {
     "Fashion": {
-      "Coreen Simpson": { "style": "Street-fashion culture.", "lighting": "Analog film textures.", "vibe": "Authentic." },
-      "David LaChapelle": { "style": "Hyper-realistic, kitsch.", "lighting": "Highly artificial.", "vibe": "Surreal." },
-      "Emanuele Ferrari": { "style": "Natural eroticism.", "lighting": "Soft natural light.", "vibe": "Sensual." },
-      "Juergen Teller": { "style": "Overexposed, raw.", "lighting": "Direct camera flash.", "vibe": "Anti-glamour." },
-      "Kacper Kasprzyk": { "style": "Architectural, minimal.", "lighting": "Cold studio light.", "vibe": "Modern." },
-      "Mario Testino": { "style": "High-energy luxury.", "lighting": "Balanced studio light.", "vibe": "Posh." },
-      "Tim Walker": { "style": "Surreal, fairy-tale.", "lighting": "Soft dream tones.", "vibe": "Whimsical." },
-      "Viviane Sassen": { "style": "Abstracted bodies.", "lighting": "High-contrast sunlight.", "vibe": "Bold." }
+      "Coreen Simpson": {
+        "style": "Street-fashion culture, documentary approach.",
+        "lighting": "Analog film textures, available light with occasional flash.",
+        "composition": "Tight street framing, environmental portraits, candid angles.",
+        "color_palette": "High-contrast B&W, warm desaturated tones.",
+        "lens": "35mm–50mm, standard primes for intimacy.",
+        "signature": "Harlem cultural context embedded in every frame.",
+        "vibe": "Authentic."
+      },
+      "David LaChapelle": {
+        "style": "Hyper-realistic, kitsch, maximalist tableaux.",
+        "lighting": "Highly artificial, multi-colored gels, theatrical strobes.",
+        "composition": "Wide symmetrical framing, baroque layering, overwhelming detail.",
+        "color_palette": "Hyper-saturated neons, candy colors, electric contrast.",
+        "lens": "24mm–35mm wide-angle for exaggerated perspective.",
+        "signature": "Pop-art excess, celebrity as iconography, visual overload.",
+        "vibe": "Surreal."
+      },
+      "Emanuele Ferrari": {
+        "style": "Natural eroticism, intimate editorial.",
+        "lighting": "Soft window light, golden hour, minimal fill.",
+        "composition": "Close crops on skin/texture, shallow DoF, negative space.",
+        "color_palette": "Warm skin tones, muted earth, creamy highlights.",
+        "lens": "85mm–135mm for compression and bokeh.",
+        "signature": "Skin as landscape, sensuality through subtlety.",
+        "vibe": "Sensual."
+      },
+      "Juergen Teller": {
+        "style": "Overexposed, raw, deliberately imperfect.",
+        "lighting": "Direct on-camera flash, blown highlights.",
+        "composition": "Snapshot aesthetic, off-center subjects, messy framing.",
+        "color_palette": "Washed-out, green-shifted, harsh whites.",
+        "lens": "28mm–35mm compact camera look.",
+        "signature": "Anti-fashion rebellion, ugliness as statement.",
+        "vibe": "Anti-glamour."
+      },
+      "Kacper Kasprzyk": {
+        "style": "Architectural, minimal, geometric precision.",
+        "lighting": "Cold studio light, even fill, controlled shadows.",
+        "composition": "Centered subjects, clean negative space, grid-like structure.",
+        "color_palette": "Cool pastels, ice blue, clinical white.",
+        "lens": "50mm–85mm for clean distortion-free rendering.",
+        "signature": "Fashion meets Bauhaus, human form as architecture.",
+        "vibe": "Modern."
+      },
+      "Mario Testino": {
+        "style": "High-energy luxury, glamorous editorial.",
+        "lighting": "Balanced studio/natural mix, beauty dish key light.",
+        "composition": "Dynamic poses, full-body framing, aspirational angles.",
+        "color_palette": "Warm golden tones, sun-kissed skin, rich contrast.",
+        "lens": "70mm–200mm telephoto for compression and flattery.",
+        "signature": "Celebrity glamour, effortless luxury, Latin warmth.",
+        "vibe": "Posh."
+      },
+      "Tim Walker": {
+        "style": "Surreal, fairy-tale, elaborate set pieces.",
+        "lighting": "Soft diffused dream tones, overcast daylight feel.",
+        "composition": "Wide establishing shots, subjects dwarfed by fantasy sets.",
+        "color_palette": "Pastel fantasy, dusty rose, powder blue, soft gold.",
+        "lens": "35mm–50mm for environmental storytelling.",
+        "signature": "Fashion as fairy tale, handmade props, childlike wonder.",
+        "vibe": "Whimsical."
+      },
+      "Viviane Sassen": {
+        "style": "Abstracted bodies, graphic color-blocking.",
+        "lighting": "High-contrast direct sunlight, hard shadows as design element.",
+        "composition": "Radical cropping, bodies as abstract shapes, shadow play.",
+        "color_palette": "Bold primaries, deep shadows, saturated African palette.",
+        "lens": "50mm–85mm, medium distance for body abstraction.",
+        "signature": "Shadow geometry, limbs as composition, Africa as muse.",
+        "vibe": "Bold."
+      }
     },
     "Product / Still Life": {
-      "Aaron Tilley": { "style": "Conceptual tension.", "lighting": "High-precision.", "vibe": "Creative." },
-      "Carl Kleiner": { "style": "Minimalist geometric.", "lighting": "Flat, even light.", "vibe": "Graphic." },
-      "Daniel Sannwald": { "style": "Futuristic CGI-like.", "lighting": "Experimental gels.", "vibe": "Cyberpunk." },
-      "Irving Penn": { "style": "Elegant simplicity.", "lighting": "North-light studio.", "vibe": "Timeless." },
-      "Jonathan Knowles": { "style": "High-speed liquids.", "lighting": "Strobe-frozen.", "vibe": "Technical." },
-      "Jonathan Zawada": { "style": "Digital-physical hybrid.", "lighting": "Synthetic light.", "vibe": "Alien." },
-      "Karl Taylor": { "style": "Technical perfection.", "lighting": "Complex multi-light.", "vibe": "Commercial." },
-      "Markus Jans": { "style": "Moody, textural.", "lighting": "Dark focused light.", "vibe": "Atmospheric." },
-      "Mike Kus": { "style": "Lifestyle product.", "lighting": "Natural daylight.", "vibe": "Warm." },
-      "Rich Stapleton": { "style": "Minimal earthy.", "lighting": "Soft natural shadows.", "vibe": "Serene." },
-      "Robert Clark": { "style": "Detailed observational.", "lighting": "Even studio light.", "vibe": "Precise." },
-      "Thomas Prior": { "style": "Accidental art.", "lighting": "Soft glows.", "vibe": "Artistic." },
-      "Tim Tadder": { "style": "Explosive, colorful.", "lighting": "Intense strobes.", "vibe": "Powerful." }
+      "Aaron Tilley": {
+        "style": "Conceptual tension, satisfying near-misses.",
+        "lighting": "High-precision studio, clean key with minimal shadow.",
+        "composition": "Centered subject, mathematical precision, suspended motion.",
+        "color_palette": "Bold solid backgrounds, monochromatic with accent pop.",
+        "lens": "100mm macro to 85mm, sharp detail rendering.",
+        "signature": "Objects on the edge of disaster, visual tension.",
+        "vibe": "Creative."
+      },
+      "Carl Kleiner": {
+        "style": "Minimalist geometric, food/object as graphic element.",
+        "lighting": "Flat, even, shadowless top-down light.",
+        "composition": "Overhead flat-lay, grid arrangements, obsessive symmetry.",
+        "color_palette": "Pastel backgrounds, candy tones, graphic contrast.",
+        "lens": "50mm–90mm overhead, tilt-shift for selective focus.",
+        "signature": "IKEA cookbook aesthetic, food as design material.",
+        "vibe": "Graphic."
+      },
+      "Daniel Sannwald": {
+        "style": "Futuristic CGI-like, digital-era fashion/product.",
+        "lighting": "Experimental gels, neon accents, UV and blacklight.",
+        "composition": "Dynamic angles, warped perspectives, layered digital composites.",
+        "color_palette": "Electric neon, deep black, chrome reflections.",
+        "lens": "Wide-angle 24mm for distortion, macro for texture.",
+        "signature": "Post-human aesthetic, technology meets fashion.",
+        "vibe": "Cyberpunk."
+      },
+      "Irving Penn": {
+        "style": "Elegant simplicity, reductive still life mastery.",
+        "lighting": "North-light studio, single source, controlled fall-off.",
+        "composition": "Tight framing, grey/white backgrounds, object isolation.",
+        "color_palette": "Muted neutrals, platinum tones, subtle warm shifts.",
+        "lens": "150mm–210mm large format for extreme sharpness.",
+        "signature": "Corner portraits, decaying objects elevated to art.",
+        "vibe": "Timeless."
+      },
+      "Jonathan Knowles": {
+        "style": "High-speed liquid, splash and pour specialist.",
+        "lighting": "Strobe-frozen at 1/10000s, backlit transparency.",
+        "composition": "Centered product, liquid in motion framing the hero.",
+        "color_palette": "Clean whites, vivid liquid colors, glass-clear tones.",
+        "lens": "100mm macro, medium telephoto for splash detail.",
+        "signature": "Frozen liquid crowns, impossible pours, beverage hero shots.",
+        "vibe": "Technical."
+      },
+      "Jonathan Zawada": {
+        "style": "Digital-physical hybrid, algorithmic aesthetics.",
+        "lighting": "Synthetic rendered light, impossible light sources.",
+        "composition": "Surreal floating compositions, zero-gravity arrangements.",
+        "color_palette": "Iridescent gradients, holographic, alien color shifts.",
+        "lens": "Virtual camera, no physical lens constraints.",
+        "signature": "Album art surrealism, organic-digital fusion.",
+        "vibe": "Alien."
+      },
+      "Karl Taylor": {
+        "style": "Technical perfection, commercial product excellence.",
+        "lighting": "Complex multi-light setups, 4–6 light precision rigs.",
+        "composition": "Hero angle at 30–45°, controlled reflections, clean negative space.",
+        "color_palette": "True-to-product color, neutral backgrounds, precise white balance.",
+        "lens": "100mm macro, 85mm for hero, tilt-shift for plane control.",
+        "signature": "Textbook commercial lighting, education-grade setups.",
+        "vibe": "Commercial."
+      },
+      "Markus Jans": {
+        "style": "Moody, textural, painterly still life.",
+        "lighting": "Dark focused chiaroscuro, single dramatic side light.",
+        "composition": "Dutch master arrangements, layered depth, intimate scale.",
+        "color_palette": "Deep browns, burgundy, dark greens, old-world warmth.",
+        "lens": "85mm–105mm for shallow DoF, painterly separation.",
+        "signature": "Renaissance meets photography, food as vanitas.",
+        "vibe": "Atmospheric."
+      },
+      "Mike Kus": {
+        "style": "Lifestyle product, aspirational context shots.",
+        "lighting": "Natural daylight, window side-light, golden hour warmth.",
+        "composition": "45° tabletop angle, lifestyle context, breathing negative space.",
+        "color_palette": "Warm naturals, earthy tones, inviting warmth.",
+        "lens": "35mm–50mm for environmental product context.",
+        "signature": "Products in real life, approachable commercial warmth.",
+        "vibe": "Warm."
+      },
+      "Rich Stapleton": {
+        "style": "Minimal earthy, wabi-sabi aesthetic.",
+        "lighting": "Soft directional natural light, gentle shadow gradients.",
+        "composition": "Asymmetric balance, organic textures as background, quiet space.",
+        "color_palette": "Stone, linen, clay, muted sage, desaturated earth.",
+        "lens": "50mm–85mm natural perspective, medium distance.",
+        "signature": "Kinfolk aesthetic, objects with patina and soul.",
+        "vibe": "Serene."
+      },
+      "Robert Clark": {
+        "style": "Detailed observational, scientific precision.",
+        "lighting": "Even studio light, cross-polarized for texture detail.",
+        "composition": "Specimen-style isolation, taxonomic grids, documentary framing.",
+        "color_palette": "True-to-life colors, neutral white backgrounds, no grading.",
+        "lens": "Macro 100mm–200mm, extreme close-up for detail.",
+        "signature": "National Geographic detail, science meets beauty.",
+        "vibe": "Precise."
+      },
+      "Thomas Prior": {
+        "style": "Accidental art, found composition, urban still life.",
+        "lighting": "Soft ambient glows, mixed artificial/natural sources.",
+        "composition": "Overhead or straight-on, objects as they were found, raw framing.",
+        "color_palette": "Muted urban tones, faded signage colors, nostalgic warmth.",
+        "lens": "35mm–50mm documentary standard, natural perspective.",
+        "signature": "Beauty in the mundane, street-level observations.",
+        "vibe": "Artistic."
+      },
+      "Tim Tadder": {
+        "style": "Explosive, colorful, high-impact sports/product.",
+        "lighting": "Intense multi-strobe setups, rim lights for separation.",
+        "composition": "Dynamic action framing, product as hero, explosive elements surrounding.",
+        "color_palette": "Vivid saturated primaries, deep blacks, high contrast.",
+        "lens": "70mm–200mm telephoto for compression, high-speed sync.",
+        "signature": "Water/paint explosions on heads, extreme action freeze.",
+        "vibe": "Powerful."
+      }
     }
   },
   "productTypes": {
@@ -153,5 +321,47 @@
         }
       ]
     }
+  },
+  "contextPresets": {
+    "Setting": [
+      "Luxury studio with premium backdrop",
+      "Minimalist white infinity curve",
+      "Dark moody editorial set",
+      "Outdoor natural environment",
+      "Lifestyle kitchen counter",
+      "Window-lit marble table",
+      "Industrial concrete loft",
+      "Botanical garden setting"
+    ],
+    "Surface": [
+      "Polished marble slab",
+      "Raw concrete texture",
+      "Warm walnut wood",
+      "Draped silk fabric",
+      "Brushed metal plate",
+      "Wet slate stone",
+      "Linen tablecloth",
+      "Frosted glass surface"
+    ],
+    "Lighting Mood": [
+      "Soft golden hour glow",
+      "Clean commercial studio light",
+      "Dramatic side-lit chiaroscuro",
+      "Neon accent rim lighting",
+      "Diffused overcast daylight",
+      "Candlelight warmth",
+      "High-key bright and airy",
+      "Low-key deep shadows"
+    ],
+    "Atmosphere": [
+      "Premium luxury magazine editorial",
+      "Clean e-commerce catalog",
+      "Rustic organic artisan",
+      "Futuristic tech showcase",
+      "Vintage nostalgic warmth",
+      "Zen minimalist calm",
+      "Bold pop-art energy",
+      "Cozy hygge comfort"
+    ]
   }
 }

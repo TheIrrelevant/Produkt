@@ -3,6 +3,7 @@ import { PageLayout } from './components/PageLayout'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { SectionReference } from './components/SectionReference'
 import { SectionConfig } from './components/SectionConfig'
+import { SectionContext } from './components/SectionContext'
 import { SectionOutput } from './components/SectionOutput'
 import { useLibrary } from './data/useLibrary'
 
@@ -22,20 +23,12 @@ export default function App() {
             {/* Center: Product Type + Photographer */}
             <SectionConfig state={state} dispatch={dispatch} lib={lib} />
 
-            {/* Right: Context Text */}
-            <div className="flex flex-col gap-1.5">
-              <label className="text-ash/40 text-xs uppercase tracking-wider">
-                Context Description
-              </label>
-              <textarea
-                value={state.contextText}
-                onChange={(e) => dispatch({ type: 'SET_CONTEXT_TEXT', text: e.target.value })}
-                placeholder="Place this product inside a luxury jewelry box with champagne-toned background and soft premium lighting..."
-                className="flex-1 min-h-[200px] bg-obsidian border border-ash/20 rounded-default p-4
-                           text-bone text-sm placeholder:text-ash/30
-                           focus:border-ash/50 focus:outline-none resize-none"
-              />
-            </div>
+            {/* Right: Context Text + Presets */}
+            <SectionContext
+              contextText={state.contextText}
+              dispatch={dispatch}
+              presets={lib.contextPresets}
+            />
           </div>
 
           {/* Separator */}

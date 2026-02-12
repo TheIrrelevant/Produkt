@@ -13,15 +13,15 @@ ABSOLUTE RULES:
 You always respond with valid JSON matching the requested schema.`
 
 export function buildPrompt(state: ProduktState): string {
-  const sections: string[] = []
+  const sections: string[] = [
+    buildPhase1(state),
+    buildPhase2(state),
+    buildPhase3(state),
+    buildPhase4(state),
+    buildOutputInstruction(),
+  ]
 
-  sections.push(buildPhase1(state))
-  sections.push(buildPhase2(state))
-  sections.push(buildPhase3(state))
-  sections.push(buildPhase4(state))
-  sections.push(buildOutputInstruction())
-
-  return sections.join('\n\n')
+  return sections.filter(Boolean).join('\n\n')
 }
 
 function buildPhase1(state: ProduktState): string {
@@ -48,6 +48,10 @@ After completing the analysis, LOCK all extracted details as immutable product c
 }
 
 function buildPhase2(state: ProduktState): string {
+  if (!state.contextText.trim()) {
+    return ''
+  }
+
   return `═══ PHASE 2: PHOTOGRAPHY CONCEPT ═══
 
 CONTEXT TRANSFORMATION REQUEST:
@@ -66,7 +70,8 @@ Define:
 function buildPhase3(state: ProduktState): string {
   const photographerBlock = buildPhotographerSection(state)
 
-  return `═══ PHASE 3: LIGHTING & CAMERA ═══
+  const parts = [
+    `═══ PHASE 3: LIGHTING & CAMERA ═══
 
 Define the complete technical photography setup:
 
@@ -83,19 +88,26 @@ CAMERA:
 - Aperture & depth of field requirements
 - Shot distance and framing
 - Camera angle and height relative to product
-- Perspective and distortion considerations
+- Perspective and distortion considerations`,
+  ]
 
-${photographerBlock}
+  if (photographerBlock) {
+    parts.push(photographerBlock)
+  }
 
-COLOR SCIENCE:
+  parts.push(`COLOR SCIENCE:
 - Overall color temperature (warm/cool/neutral)
 - Color grading direction
 - Contrast ratio
 - Highlight rolloff and shadow treatment
-- Dynamic range approach`
+- Dynamic range approach`)
+
+  return parts.join('\n\n')
 }
 
 function buildPhase4(state: ProduktState): string {
+  const hasContext = !!state.contextText.trim()
+
   return `═══ PHASE 4: RENDER CONSTRAINTS ═══
 
 Generate two explicit constraint lists:
@@ -105,8 +117,7 @@ MUST_INCLUDE (non-negotiable):
 - "ultra realistic product photography"
 - "photorealistic, high detail, commercial photography quality"
 - "product is 1:1 identical to reference, no design changes, no color shifts"
-- All lighting and camera specs from Phase 3
-- All context elements from Phase 2
+- All lighting and camera specs from Phase 3${hasContext ? '\n- All context elements from Phase 2' : ''}
 
 MUST_NOT_INCLUDE (hard exclusions):
 - Any modification to product design, shape, color, or proportions
@@ -116,7 +127,7 @@ MUST_NOT_INCLUDE (hard exclusions):
 - Fingerprints, dust, scratches (unless in reference)
 - Any element contradicting the Phase 1 analysis
 
-Then combine ALL four phases into a single, unified FINAL PROMPT that a generative AI can execute directly to produce the image.`
+Then combine ALL phases into a single, unified FINAL PROMPT that a generative AI can execute directly to produce the image.`
 }
 
 function buildPhotographerSection(state: ProduktState): string {
@@ -125,16 +136,19 @@ function buildPhotographerSection(state: ProduktState): string {
     !state.selectedPhotographerName ||
     !state.selectedPhotographerInfo
   ) {
-    return `PHOTOGRAPHER INFLUENCE:
-Apply clean, commercial product photography aesthetic. No specific photographer influence.`
+    return ''
   }
 
   const info: Photographer = state.selectedPhotographerInfo
   return `PHOTOGRAPHER INFLUENCE — ${state.selectedPhotographerName}:
 - Style DNA: ${info.style}
 - Lighting approach: ${info.lighting}
+- Composition & framing: ${info.composition}
+- Color palette: ${info.color_palette}
+- Preferred lens: ${info.lens}
+- Signature technique: ${info.signature}
 - Overall vibe: ${info.vibe}
-Translate this photographer's visual identity into the technical setup while maintaining commercial quality.`
+Translate this photographer's complete visual identity into the technical setup — lighting, camera, composition, and color science must reflect their aesthetic while maintaining commercial quality.`
 }
 
 function buildOutputInstruction(): string {

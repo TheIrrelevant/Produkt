@@ -2,6 +2,10 @@
 export interface Photographer {
   readonly style: string
   readonly lighting: string
+  readonly composition: string
+  readonly color_palette: string
+  readonly lens: string
+  readonly signature: string
   readonly vibe: string
 }
 
@@ -22,6 +26,11 @@ export interface ProductType {
   readonly analysisTemplate: readonly AnalysisCategory[]
 }
 
+/** Context preset categories (Setting, Surface, Lighting Mood, Atmosphere) */
+export interface ContextPresets {
+  readonly [category: string]: readonly string[]
+}
+
 /** Full library structure */
 export interface Library {
   readonly photographers: {
@@ -30,4 +39,5 @@ export interface Library {
   readonly productTypes: {
     readonly [typeId: string]: ProductType
   }
+  readonly contextPresets: ContextPresets
 }
