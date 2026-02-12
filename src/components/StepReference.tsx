@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import type { Dispatch } from 'react'
 import type { WizardState, WizardAction } from '../types/wizard'
 import { ImageUpload } from './ui/ImageUpload'
@@ -8,6 +9,14 @@ interface Props {
 }
 
 export function StepReference({ state, dispatch }: Props) {
+  // Cleanup object URL on unmount or when preview changes
+  useEffect(() => {
+    return () => {
+      if (state.referencePreview) {
+        URL.revokeObjectURL(state.referencePreview)
+      }
+    }
+  }, [state.referencePreview])
   return (
     <div className="max-w-2xl mx-auto flex flex-col gap-6">
       <div>

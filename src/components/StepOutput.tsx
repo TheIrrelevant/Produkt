@@ -58,9 +58,15 @@ export function StepOutput({ state, dispatch }: Props) {
   }, [state, dispatch])
 
   async function handleCopy() {
-    await navigator.clipboard.writeText(state.generatedPrompt!)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    try {
+      await navigator.clipboard.writeText(state.generatedPrompt!)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Clipboard write failed:', err)
+      // Fallback: show error state briefly
+      setCopied(false)
+    }
   }
 
   // ── State B: Loading ──────────────────────────────────────────

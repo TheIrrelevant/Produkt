@@ -27,7 +27,20 @@ export const geminiProvider: ProduktProvider = {
   name: 'Gemini',
 
   async generate(request: ProduktRequest, config: ProviderConfig): Promise<string> {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`
+    const isNode = !('window' in globalThis)
+    const baseUrl = isNode
+      ? 'https://generativelanguage.googleapis.com'
+      : '/api/gemini'
+
+    // In Node/direct mode: use query param. In browser/proxy mode: use header
+    const endpoint = isNode
+      ? `/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`
+      : `/v1beta/models/${config.model}:generateContent`
+
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+    if (!isNode) {
+      headers['x-api-key'] = config.apiKey
+    }
 
     const body = {
       systemInstruction: { parts: [{ text: request.systemInstruction }] },
@@ -57,9 +70,9 @@ export const geminiProvider: ProduktProvider = {
       ],
     }
 
-    const res = await fetch(url, {
+    const res = await fetch(`${baseUrl}${endpoint}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify(body),
     })
 

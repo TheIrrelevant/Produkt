@@ -30,3 +30,8 @@
 - VITE_OPENAI_API_KEY → OpenAI
 - VITE_ANTHROPIC_API_KEY → Anthropic
 - Auto-detects first available key
+
+## Security
+⚠️ **VITE_ keys are exposed in client bundle — FOR LOCAL DEV ONLY**
+- Production: Use backend proxy at `/api/gemini`, `/api/openai`, `/api/anthropic`
+- See [SECURITY.md](SECURITY.md) for full deployment guide
