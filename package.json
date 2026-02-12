@@ -9,6 +9,8 @@
     "lint": "tsc -b",
     "preview": "vite preview",
     "start-engine": "vite --open",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "stop-engine": "lsof -ti :3002 | xargs kill 2>/dev/null; echo 'Engine stopped.'"
   },
   "dependencies": {
@@ -29,6 +31,7 @@
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   }
 }

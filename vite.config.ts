@@ -7,6 +7,11 @@ export default defineConfig({
   server: {
     port: 3002,
     proxy: {
+      '/api/gemini': {
+        target: 'https://generativelanguage.googleapis.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/gemini/, ''),
+      },
       '/api/openai': {
         target: 'https://api.openai.com',
         changeOrigin: true,

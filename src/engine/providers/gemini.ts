@@ -31,7 +31,7 @@ export const geminiProvider: ProduktProvider = {
     const baseUrl = isNode
       ? 'https://generativelanguage.googleapis.com'
       : '/api/gemini'
-    const url = `${baseUrl}/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`
+    const url = `${baseUrl}/v1beta/models/${config.model}:generateContent`
 
     const body = {
       systemInstruction: { parts: [{ text: request.systemInstruction }] },
@@ -63,7 +63,10 @@ export const geminiProvider: ProduktProvider = {
 
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-goog-api-key': config.apiKey,
+      },
       body: JSON.stringify(body),
     })
 

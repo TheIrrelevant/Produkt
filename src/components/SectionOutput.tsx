@@ -50,11 +50,10 @@ export function SectionOutput({ state, dispatch }: Props) {
   }, [state.isGenerating, dispatch])
 
   const handleGenerate = useCallback(async () => {
-    if (state.isGenerating) return
+    if (state.isGenerating || !state.referenceImage) return
     dispatch({ type: 'START_GENERATE' })
     try {
       const prompt = buildPrompt(state)
-      if (!state.referenceImage) return
       const result = await runProduktEngine(prompt, state.referenceImage)
       dispatch({ type: 'SET_GENERATED_PROMPT', prompt: result })
     } catch (err) {
