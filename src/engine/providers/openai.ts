@@ -50,6 +50,11 @@ export const openaiProvider: ProduktProvider = {
     }
 
     const data = await res.json()
+
+    if (!data.choices?.[0]?.message?.content) {
+      throw new Error('OpenAI returned empty response')
+    }
+
     return data.choices[0].message.content
   },
 }

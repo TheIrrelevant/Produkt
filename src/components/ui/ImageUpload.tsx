@@ -15,10 +15,11 @@ export function ImageUpload({ preview, onUpload, onClear }: ImageUploadProps) {
   const handleFile = useCallback(
     (file: File) => {
       if (!file.type.match(/^image\/(jpeg|png|webp)$/)) return
+      if (preview) URL.revokeObjectURL(preview)
       const url = URL.createObjectURL(file)
       onUpload(file, url)
     },
-    [onUpload],
+    [onUpload, preview],
   )
 
   const handleDrop = useCallback(

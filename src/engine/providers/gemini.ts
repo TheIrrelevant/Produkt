@@ -69,6 +69,11 @@ export const geminiProvider: ProduktProvider = {
     }
 
     const data = await res.json()
+
+    if (!data.candidates?.[0]?.content?.parts?.[0]?.text) {
+      throw new Error('Gemini returned empty or blocked response')
+    }
+
     return data.candidates[0].content.parts[0].text
   },
 }
