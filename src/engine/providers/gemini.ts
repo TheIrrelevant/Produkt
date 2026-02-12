@@ -27,7 +27,11 @@ export const geminiProvider: ProduktProvider = {
   name: 'Gemini',
 
   async generate(request: ProduktRequest, config: ProviderConfig): Promise<string> {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`
+    const isNode = !('window' in globalThis)
+    const baseUrl = isNode
+      ? 'https://generativelanguage.googleapis.com'
+      : '/api/gemini'
+    const url = `${baseUrl}/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`
 
     const body = {
       systemInstruction: { parts: [{ text: request.systemInstruction }] },

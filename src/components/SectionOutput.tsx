@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import type { Dispatch } from 'react'
 import type { ProduktState, ProduktAction } from '../types/state'
 import { canGenerate } from '../engine/validation'
@@ -30,7 +30,15 @@ function download(content: string, filename: string, mime: string) {
 
 export function SectionOutput({ state, dispatch }: Props) {
   const [copied, setCopied] = useState(false)
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout>>(null)
   const ready = canGenerate(state)
+
+  // Cleanup copy timer on unmount
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+    }
+  }, [])
 
   useEffect(() => {
     if (!state.isGenerating) return
@@ -42,10 +50,12 @@ export function SectionOutput({ state, dispatch }: Props) {
   }, [state.isGenerating, dispatch])
 
   const handleGenerate = useCallback(async () => {
+    if (state.isGenerating) return
     dispatch({ type: 'START_GENERATE' })
     try {
       const prompt = buildPrompt(state)
-      const result = await runProduktEngine(prompt, state.referenceImage!)
+      if (!state.referenceImage) return
+      const result = await runProduktEngine(prompt, state.referenceImage)
       dispatch({ type: 'SET_GENERATED_PROMPT', prompt: result })
     } catch (err) {
       dispatch({
@@ -56,18 +66,21 @@ export function SectionOutput({ state, dispatch }: Props) {
   }, [state, dispatch])
 
   async function handleCopy() {
+    if (!state.generatedPrompt) return
     try {
-      await navigator.clipboard.writeText(state.generatedPrompt!)
+      await navigator.clipboard.writeText(state.generatedPrompt)
       setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+      copyTimerRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
       setCopied(false)
     }
   }
 
   function handleDownload() {
+    if (!state.generatedPrompt) return
     download(
-      state.generatedPrompt!,
+      state.generatedPrompt,
       `produkt-prompt-${Date.now()}.json`,
       'application/json',
     )
@@ -115,7 +128,7 @@ export function SectionOutput({ state, dispatch }: Props) {
       {hasResult && (
         <div className="bg-ash/5 border border-ash/10 rounded-card p-6 max-h-[400px] overflow-y-auto step-enter">
           <pre className="text-bone text-sm font-avenir whitespace-pre-wrap break-words">
-            {formatPrompt(state.generatedPrompt!)}
+            {state.generatedPrompt ? formatPrompt(state.generatedPrompt) : ''}
           </pre>
         </div>
       )}

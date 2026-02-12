@@ -1,5 +1,5 @@
 import type { ProduktState } from '../types/state'
-import type { Photographer, ProductType } from '../types/library'
+import type { Photographer } from '../types/library'
 
 export const SYSTEM_INSTRUCTION = `You are an Ultra-Precision Product Photography AI specializing in reference-faithful context transformation.
 
@@ -25,7 +25,8 @@ export function buildPrompt(state: ProduktState): string {
 }
 
 function buildPhase1(state: ProduktState): string {
-  const productType: ProductType = state.selectedProductType!
+  const productType = state.selectedProductType
+  if (!productType) return ''
 
   const categories = productType.analysisTemplate.map((cat, i) => {
     const letter = String.fromCharCode(65 + i)

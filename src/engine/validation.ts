@@ -4,7 +4,6 @@ import type { ProduktState } from '../types/state'
 export function canGenerate(state: ProduktState): boolean {
   return (
     state.referenceImage !== null &&
-    state.selectedProductTypeId !== null &&
-    state.contextText.trim().length > 0
+    state.selectedProductTypeId !== null
   )
 }
